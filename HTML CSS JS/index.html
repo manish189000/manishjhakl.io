@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .social-media {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #displayInput {
+            width: 40vw;
+            
+            height: 40px;
+            padding-bottom: 2px;
+            padding: 2px;
+            border-radius: 12px;
+        }
+
+        button {
+            width: 20vw;
+            gap: 12vw;
+            height: 30px;
+            border-radius: 12px;
+            padding-left: 22px;
+
+        }
+
+        .container {
+            width: 87%;
+            height: 100%;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 6vw;
+            background-color: beige;
+            
+            
+        }
+    </style>
+
+    <div class="container">
+
+        <div>
+            <label for="displayInput"></label>
+            <input type="text" id="displayInput" readonly>
+            <button type="button" onclick="submitbutton()">Submit</button>
+        </div>
+
+        <form id="socialMediaForm" class="social-media">
+            <label>
+                <input type="checkbox" name="socialMedia" value="Twitter" data-link="https://twitter.com">
+                Twitter
+                
+            </label>
+            <label>
+                <input type="checkbox" name="socialMedia" value="Facebook" data-link="https://facebook.com">
+                Facebook
+            </label>
+            <label>
+                <input type="checkbox" name="socialMedia" value="Instagram" data-link="https://instagram.com">
+                Instagram
+            </label>
+            <label>
+                <input type="checkbox" name="socialMedia" value="LinkedIn"
+                    data-link="https://linkedin.com/company/example"> LinkedIn
+            </label>
+
+            <script>
+            
+
+               
+                function submitbutton() {
+                    
+                    const selectedCheckbox = document.querySelector('input[name="socialMedia"]:checked');
+
+                  
+                    const displayInput = document.getElementById('displayInput');
+                    displayInput.value = selectedCheckbox ? selectedCheckbox.value : '';
+
+                   
+                    if (selectedCheckbox) {
+                        const link = selectedCheckbox.getAttribute('data-link');
+                        window.open(link, '_blank');
+                    }
+                }
+
+            </script>
+
+
+
+        </form>
+    </div>
+</body>
+
+</html>
